@@ -11,17 +11,27 @@ class App extends React.Component {
     super();
     this.state = {
       greeting: `Hello Sandbox`,
-      bands: ["Guster", "Modest Mouse", "CCR", "Skynard", "Led Zepplin"]
+      bands: [
+        "Guster",
+        "Guster",
+        "Modest Mouse",
+        "CCR",
+        "Skynard",
+        "Led Zepplin"
+      ]
     };
   }
 
   render() {
     //step 3, render must be called
-    return [
-      <h2 key="item1">{this.state.greeting}</h2>,
-      <div key="item2">Guster</div>,
-      <div key="item3">Modest Mouse</div>
-    ];
+    //When there is change in the state then it re-renders
+    return (
+      <div>
+        <h2>{this.state.greeting}</h2>
+        //The keys have to be unique
+        <ul>{this.state.bands.map((band, i) => <li key={band}>{band}</li>)}</ul>
+      </div>
+    );
   }
 }
 
